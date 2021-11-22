@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TimedResult Contact Database</title>
+<link rel="icon" type="image/x-icon" href="../../media/admin-interface/logo/timedresult.png">
+    <link rel="stylesheet" type="text/css" href="../../media/css/custom.css">
+</head>
+<body>
+{% if user.is_authenticated %}
+<table style="background-color:#111; width:300px;margin-right: 0px;
+  margin-left: auto;">
+    <tr>
+        <th style="width:200px; background-color:#111">
+<p>Logged in as: {{ user.username }} </p></th><th style="width:2px; background-color:#111"><form action="{% url 'logoutuser' %}" method="POST">
+        {% csrf_token %}
+    <button class="button button4" type="submit" class="btn btn-dark"> Logout</button>
+        </th>
+    </tr>
+</table>
+
+</form>
+{% endif %}
+    {% block content %}
+{% endblock %}
+</body>
+</html>
